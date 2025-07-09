@@ -1,11 +1,22 @@
-<div *ngIf="loading">Loading tasks...</div>
-<div *ngIf="error">{{ error }}</div>
-
 <ul *ngIf="!loading && !error">
   <li *ngFor="let task of tasks">
-    <h3>{{ task.title }}</h3>
-    <p>{{ task.description }}</p>
-    <p>Status: {{ task.status }}</p>
-    <button (click)="deleteTask(task._id)">Delete</button>
+    <div *ngIf="!task.editing">
+      <h3>{{ task.title }}</h3>
+      <p>{{ task.description }}</p>
+      <p>Status: {{ task.status }}</p>
+      <button (click)="enableEdit(task)">Edit</button>
+      <button (click)="deleteTask(task._id)">Delete</button>
+    </div>
+
+    <div *ngIf="task.editing">
+      <input [(ngModel)]="task.title" placeholder="Title" />
+      <textarea [(ngModel)]="task.description" placeholder="Description"></textarea>
+      <select [(ngModel)]="task.status">
+        <option value="pending">Pending</option>
+        <option value="completed">Completed</option>
+      </select>
+      <button (click)="updateTask(task)">Save</button>
+      <button (click)="cancelEdit(task)">Cancel</button>
+    </div>
   </li>
 </ul>

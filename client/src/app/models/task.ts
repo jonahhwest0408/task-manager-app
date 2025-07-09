@@ -4,5 +4,7 @@ export interface Task {
     description?: string;
     dueDate?: string;    
     status: 'pending' | 'in progress' | 'completed';
+    editing?: boolean;
+    backup?: Task;
   }
   
