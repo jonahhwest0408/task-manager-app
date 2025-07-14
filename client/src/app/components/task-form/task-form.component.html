@@ -1,4 +1,4 @@
-<h2>Create New Task</h2>
+<h2 class="form-header">Create New Task</h2>
 
 <form (ngSubmit)="createTask()">
   <input type="text" placeholder="Title" [(ngModel)]="newTask.title" name="title" required />
@@ -10,5 +10,5 @@
     <option value="completed">Completed</option>
   </select>
   <br />
-  <button type="submit">Add Task</button>
+  <button type="submit" class="submit-btn">Add Task</button>
 </form>

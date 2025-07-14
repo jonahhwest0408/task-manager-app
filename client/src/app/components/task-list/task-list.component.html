@@ -4,8 +4,8 @@
       <h3>{{ task.title }}</h3>
       <p>{{ task.description }}</p>
       <p>Status: {{ task.status }}</p>
-      <button (click)="enableEdit(task)">Edit</button>
-      <button (click)="deleteTask(task._id)">Delete</button>
+      <button class="edit" (click)="enableEdit(task)">Edit</button>
+      <button class="delete" (click)="deleteTask(task._id)">Delete</button>
     </div>
 
     <div *ngIf="task.editing">
